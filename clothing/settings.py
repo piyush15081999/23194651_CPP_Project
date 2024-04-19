@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'main',
     'product',
     'orderapp',
+    'storages',
     
 ]
 
@@ -138,4 +139,13 @@ MEDIA_ROOT = BASE_DIR / "media"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+AWS_ACCESS_KEY_ID="ASIATUYJP7SUHD5UDQM3"
+AWS_SECRET_ACCESS_KEY="pK+J3sp/fC6elFXRAV0sV4fzMSRjDt2gJQqaOy90"
+AWS_SESSION_TOKEN="IQoJb3JpZ2luX2VjEMv//////////wEaCXVzLWVhc3QtMSJHMEUCIQD21AFiAuDixV6JQ44sPcc2TzpRV7YRqnEnf+TxlvaAIAIgQSt28HocB+zfgK0apUhlETEcVnKLptC+D2lEgSXmihUq/wMIFBADGgwyNTA3Mzg2Mzc5OTIiDE5yfNVPGeF0nNYtmyrcA8Zhx2TS/oAYKvSJmTKZv5SXyuLQcmGEcdXIwsxXJtnZLuDS9/Dqiecz1xv+wPbXxwp/BmSYQ4VYQBAwaTgHSMgv4SeA2PzmqeIZPXiGp+RAxjQ1Bmk6OXjxZQSfcfg2sTLFvR1dFbythFao8x44A0XX76GJz1O+j18XyIFSSS3zITYYymLt29d7gVzzwse6YR0QulfGUcxvOKnhIXO6FbN20+kdH3yzdeZSqPjKF2eTyVtkcKWSX2tFDSCs0eFUqLr9v4xXoKdZtL6lFIRMIs4mdzEmdvnaP4XEIPkhIetkUjTOuP1E2Y8CwsXwDhC25NTSN94JBt8iKwiZGkFwP04slp1Py1Gu8oz4gQ1stBR8uviuxddiRWOb9rgASnt+WbHTudy+EW2G+5WFZZVd0cr87RT6r0WS38Y3f/a8kehjFZ0kMP/pmDTsXfJC7zSlEqB6h7z0QWzRJOJcqHfOjAw8RcRv6d/f2s4Qf3ft5QdbaTL10UsR99unmJpujfFnjcmWBVwt/NkBu5ho+jHxSNOoS4/WswwDAUDYBx4BJjIheVKuhj+ThgH+hxoah0mE2dbsu+jyRFpuqRN+WFH8FnFLb46dNjqYe6acjVk/7RZUahIr9KwTc7jcGuv+MNSZibEGOqYBlI9+WDyiwkkS89xM5liqSKlmRrC6QW8F4qW8dd452AnVk3dzzLNWiJQKzQPfK0t+eh41h3/yMfzK4UcOBkwJDHaUUhFHfzGHPDGk/6DdqZfHkuF9xSaY0NK4aayjasiQ5NN6SGZg3WY9wu3IplcwU111HE0EyCT7tvgU1T4iNWDmSIvlWwsRrBn1gmdo722/Xv3cALBhNHsmi1AOeEVwUSYezYpr/Q=="
+AWS_STORAGE_BUCKET_NAME = 'django-piyush-clothing-cpp-s3'
+AWS_S3_SIGNATURE_NAME = 's3v4',
+AWS_S3_REGION_NAME = 'eu-west-1'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL =  None
+AWS_S3_VERIFY = True
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
