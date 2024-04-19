@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+
+    
+ 
+
+
+
+
+
+
+
+    <!-- product cards -->
+    <div class="container" id="product-cards">
+      <h1 class="text-center">{{c.subcat_name}} for {{c.cat.cat_name}} </h1>
+      <div class="row" style="margin-top: 30px;">
+        {% for item in p %}
+        <div class="col-md-3 py-3 py-md-0">
+          <div class="card">
+            <img src="{{item.prod_image.url}}" alt="">
+            <div class="card-body">
+                <form action="{% url 'product_detail' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="id" value="{{item.pk}}">
+                    <h3 class="text-center"><button type="submit" value="submit">{{ item.prod_name }}</button></h3>
+                    </form>
+              <p class="text-center">{{item.prod_desc}}</p>
+              <!-- <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div> -->
+              <h2>{{item.prod_price}} <span>
+                <form action="{% url 'add_cart' %}" method="post">
+                    {% csrf_token %}
+                  <input type="hidden" name="id" value="{{item.pk}}">
+                  <button type="submit"><li class="fa-solid fa-cart-shopping"></li></button>
+                  </form></span></h2>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <!-- product cards -->
+
+
+
+
+
+
+    <!-- offer -->
+    <div class="container" id="offer">
+      <div class="row">
+        <div class="col-md-3 py-3 py-md-0">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <h3>Free Shipping</h3>
+          <p>On order over $1000</p>
+        </div>
+        <div class="col-md-3 py-3 py-md-0">
+          <i class="fa-solid fa-rotate-left"></i>
+          <h3>Free Returns</h3>
+          <p>Within 30 days</p>
+        </div>
+        <div class="col-md-3 py-3 py-md-0">
+          <i class="fa-solid fa-truck"></i>
+          <h3>Fast Delivery</h3>
+          <p>World Wide</p>
+        </div>
+        <div class="col-md-3 py-3 py-md-0">
+          <i class="fa-solid fa-thumbs-up"></i>
+          <h3>Big choice</h3>
+          <p>Of products</p>
+        </div>
+      </div>
+    </div>
+    <!-- offer -->
+
+
+
+
+
+
+{% endblock %}

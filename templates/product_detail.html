@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+
+    
+    <!-- home content -->
+    <section class="home">
+    <div class="content">
+      <h1> <span>{{p.prod_name}}</span>
+        <br>
+        <!-- Up To <span id="span2">50%</span> Off -->
+      </h1>
+      <p>{{p.prod_desc}}
+      </p>
+      <form action="{% url 'checkout' %}" method="post">
+        {% csrf_token %}
+      <input type="hidden" name="id" value="{{p.pk}}">  
+      <div class="btn"><button type="submit">Shop Now</button></div>
+      </form>  
+    </div>
+    <div class="img" style="color: rgba(187, 0, 0, 0); border: 2px solid black; height: 60vh; overflow: scroll;">
+      <img src="{{p.prod_image.url}}" alt="">
+    </div>
+  </section>
+    <!-- home content -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- offer -->
+    <div class="container" id="offer">
+      <div class="row">
+        <div class="col-md-3 py-3 py-md-0">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <h3>Free Shipping</h3>
+          <p>On order over $1000</p>
+        </div>
+        <div class="col-md-3 py-3 py-md-0">
+          <i class="fa-solid fa-rotate-left"></i>
+          <h3>Free Returns</h3>
+          <p>Within 30 days</p>
+        </div>
+        <div class="col-md-3 py-3 py-md-0">
+          <i class="fa-solid fa-truck"></i>
+          <h3>Fast Delivery</h3>
+          <p>World Wide</p>
+        </div>
+        <div class="col-md-3 py-3 py-md-0">
+          <i class="fa-solid fa-thumbs-up"></i>
+          <h3>Big choice</h3>
+          <p>Of products</p>
+        </div>
+      </div>
+    </div>
+    <!-- offer -->
+
+
+
+
+
+    
+
+
+{% endblock %}
