@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+
+
+    
+   
+    <div class="container" id="contact">
+        <div class="row" style="margin-top: 50px;">
+            
+    <!-- offer -->
+    <div class="container" id="offer">
+        <form action="{% url 'handle_cart' %}" method="post">
+            {% csrf_token %}
+        {% for item in c %}
+
+        <div class="row">
+            <div class="col-md-2 py-3 py-md-0">
+              <!-- <i class="fa-solid fa-cart-shopping"></i>
+              <h3>Free Shipping</h3> -->
+              <!-- <h3 style="padding-top: 5vh; font-weight: bolder;">Image</h3> -->
+              <img height="100vh" src="{{item.prod.prod_image.url}}" alt="">
+            </div>
+            <!-- <input type="hidden" name="prod_id" value="{{p.pk}}"> -->
+            <div class="col-md-2 py-3 py-md-0">
+              <!-- <i class="fa-solid fa-rotate-left"></i> -->
+              <!-- <h3 style="padding-top: 5vh; font-weight: bolder;">Product Name</h3> -->
+              <h3 style="padding-top: 5vh;">{{item.prod.prod_name}}</h3>
+              <p></p>
+            </div>
+            <div class="col-md-2 py-3 py-md-0">
+              <!-- <i class="fa-solid fa-truck"></i> -->
+              <!-- <h3 style="padding-top: 5vh; font-weight: bolder;">Product Price</h3> -->
+              <h3 style="padding-top: 5vh;">{{item.prod.prod_price}}</h3>
+  
+              <!-- <p>World Wide</p> -->
+            </div>
+            <div class="col-md-2 py-3 py-md-0">
+              <!-- <i class="fa-solid fa-truck"></i> -->
+              <!-- <h3 style="padding-top: 5vh; font-weight: bolder;">Quanitiy</h3> -->
+              <h3 style="padding-top: 5vh;">{{item.quantity}}</h3>
+              <!-- <p>World Wide</p> -->
+            </div>
+            <div class="col-md-2 py-3 py-md-0">
+              <!-- <i class="fa-solid fa-thumbs-up"></i> -->
+              <!-- <h3 style="padding-top: 5vh; font-weight: bolder;">Total Price</h3> -->
+              <!-- <h3 style="padding-top: 5vh;"></h3> -->
+              <!-- <p>Of products</p> -->
+            </div>
+          </div>
+
+          {% endfor %}
+          <div class="row">
+            
+            <div class="col-md-8 py-3 py-md-0">
+              <!-- <i class="fa-solid fa-rotate-left"></i> -->
+              <h3 style="padding-top: 5vh; font-weight: bolder;">Total Price</h3>
+              <h3 style="padding-top: 5vh;"></h3>
+              <p></p>
+            </div>
+            
+            <div class="col-md-2 py-3 py-md-0">
+              <!-- <i class="fa-solid fa-thumbs-up"></i> -->
+              <!-- <h3 style="padding-top: 5vh; font-weight: bolder;">Total Price</h3> -->
+              <h3 style="padding-top: 5vh;">{{t}}</h3>
+              <!-- <p>Of products</p> -->
+            </div>
+          </div>
+          <!-- {{t}} -->
+      </div>
+      <!-- offer -->
+  
+        </div>
+        <!-- <div class="row" style="margin-top: 30px;">
+            <div class="col-md-4 py-3 py-md-0">
+                <input type="text" class="form-control form-control" placeholder="Name">
+            </div>
+            <div class="col-md-4 py-3 py-md-0">
+                <input type="text" class="form-control form-control" placeholder="Email">
+            </div>
+            <div class="col-md-4 py-3 py-md-0">
+                <input type="text" class="form-control form-control" placeholder="Phone">
+            </div>
+            <div class="form-group" style="margin-top: 30px;">
+                <textarea class="form-control" id="" rows="5" placeholder="Message"></textarea>
+            </div> -->
+            <div class="messagebtn text-center"><button type="submit">Order Now</button></div>
+        <!-- </div> -->
+    </div>
+
+</form>
+
+
+
+    
+    <!-- newslater -->
+    <div class="container" id="newslater">
+      <h3 class="text-center">Subscribe To The Clothing Shop For Latest upload.</h3>
+      <div class="input text-center">
+        <input type="text" placeholder="Enter Your Email..">
+        <button id="subscribe">SUBSCRIBE</button>
+      </div>
+    </div>
+    <!-- newslater -->
+
+
+
+
+{% endblock %}
