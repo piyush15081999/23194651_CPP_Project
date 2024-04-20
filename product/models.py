@@ -15,3 +15,6 @@ class Prod(models.Model):
     prod_image = models.ImageField(upload_to='media/images')
     prod_desc= models.TextField()
     prod_price= models.FloatField(null=True, blank=True, default=None)
+
+    def __str__(self): 
+         return self.prod_name
