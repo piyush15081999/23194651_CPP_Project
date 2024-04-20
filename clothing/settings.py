@@ -149,4 +149,4 @@ AWS_S3_REGION_NAME = os.environ.get('eu-west-1')
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL =  None
 AWS_S3_VERIFY = True
-DEFAULT_FILE_STORAGE = os.environ.get('storages.backends.s3boto3.S3Boto3Storage')
+# DEFAULT_FILE_STORAGE = os.environ.get('storages.backends.s3boto3.S3Boto3Storage')
