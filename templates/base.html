@@ -72,6 +72,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'order_item' %}">My Orders</a>
               </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{% url 'cart' %}">My Cart</a>
+              </li>
             </ul>
             {% if request.user.is_authenticated %}
             <form action="{% url 'logoutx' %}" method="post" class="d-flex" id="search">
