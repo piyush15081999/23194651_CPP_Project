@@ -145,7 +145,7 @@ AWS_SESSION_TOKEN=os.environ.get("IQoJb3JpZ2luX2VjEMv//////////wEaCXVzLWVhc3QtMS
 AWS_STORAGE_BUCKET_NAME = os.environ.get('django-piyush-clothing-cpp-s3')
 AWS_S3_SIGNATURE_NAME = 's3v4'
 AWS_S3_REGION_NAME = 'eu-west-1'
-# AWS_DEFAULT_REGION='sa-east-1'
+
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL =  None
 AWS_S3_VERIFY = True
