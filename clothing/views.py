@@ -96,6 +96,38 @@ def add_cart(request):
     else:
 
         return HttpResponse("Login TO Add Cart")         
+def xcart(request):
+    if request.user.is_authenticated:
+        c= Cartitem.objects.filter(user_id=request.user.pk)
+        t=0
+        for item in c:
+            t=t+item.quantity*item.prod.prod_price
+        return render(request, 'cart.html', {'c':c, 't':t})
+    else:
+
+        return HttpResponse("Login TO Buy")  
+
+def handle_cart(request):
+    if request.method == 'POST':
+        
+        c= Cartitem.objects.filter(user_id=request.user.pk)
+        
+        now = datetime.datetime.now()
+        date_string = now.strftime("%Y%m%d%H%M%S")
+        date_int = int(date_string)
+        
+        for item in c:
+            print(item.prod)
+            o=Order(prod_id=item.prod_id, quantity=item.quantity, user_id=request.user.pk, order_main_id=date_int)
+            o.save()
+        # c= Cartitem(prod_id=p.pk, quantity=1, user_id=request.user.pk)
+        # c.save()
+        
+        return redirect('home')    
+    else:
+
+        return HttpResponse("Login To Order")                
+        
 
 def checkout(request):
     if request.method == 'POST':
