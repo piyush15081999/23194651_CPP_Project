@@ -45,7 +45,16 @@
             <div class="col-md-2 py-3 py-md-0">
               <!-- <i class="fa-solid fa-thumbs-up"></i> -->
               <!-- <h3 style="padding-top: 5vh; font-weight: bolder;">Total Price</h3> -->
-              <!-- <h3 style="padding-top: 5vh;"></h3> -->
+              <h3 style="padding-top: 5vh;"><form action="{% url 'edit_cart_item' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{item.pk}}">
+                <button type="submit" class="btn btn-warning">Edit</button>
+            </form>
+            <form action="{% url 'delete_cart_item' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{item.pk}}">
+                <button type="submit" class="btn btn-danger">Delete</button></a></li>
+            </form></h3>
               <!-- <p>Of products</p> -->
             </div>
           </div>
