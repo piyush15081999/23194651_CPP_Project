@@ -126,7 +126,47 @@ def handle_cart(request):
         return redirect('home')    
     else:
 
-        return HttpResponse("Login To Order")                
+        return HttpResponse("Login To Order") 
+
+def edit_cart_item(request):
+    if request.user.is_authenticated:    
+        if request.method=='POST':
+            id= request.POST.get('id')
+            
+            c= Cartitem.objects.get(pk=id)
+            
+            return render(request, 'edit_cart.html', {'c':c})
+        else:
+            return HttpResponse('404 ERROR')
+    else:
+        return HttpResponse('Please Login')    
+
+def handle_edit_cart_item(request):
+    if request.user.is_authenticated:    
+        if request.method=='POST':
+            id= request.POST.get('id')
+            q= request.POST.get('q')
+            print('q')
+            c= Cartitem.objects.get(pk=id)
+            c.quantity=q
+            c.save()
+            return redirect('cart')
+        else:
+            return HttpResponse('404 ERROR')
+    else:
+        return HttpResponse('Please Login')
+
+def delete_cart_item(request):
+    if request.user.is_authenticated:    
+        if request.method=='POST':
+            id= request.POST.get('id')
+            c= Cartitem.objects.get(pk=id)
+            c.delete()
+            return redirect('cart')
+        else:
+            return HttpResponse('404 ERROR')
+    else:
+        return HttpResponse('Please Login')  
         
 
 def checkout(request):
