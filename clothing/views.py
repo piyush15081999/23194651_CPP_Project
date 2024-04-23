@@ -3,7 +3,7 @@ from product.models import Category, Subcategory, Prod
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from orderapp.models import Cartitem, Order
-import datetime
+from packagepiyush import uniquekey
 from django.http import HttpResponse
 
 def index(request):
@@ -190,9 +190,8 @@ def handle_checkout(request):
         print(p)
         c= Cartitem.objects.filter(user_id=request.user.pk)
         
-        now = datetime.datetime.now()
-        date_string = now.strftime("%Y%m%d%H%M%S")
-        date_int = int(date_string)
+        
+        date_int = int(uniquekey(10,100))
         o1= Order(prod_id=p.pk, quantity=1, user_id=request.user.pk, order_main_id=date_int)
         
         for item in c:
